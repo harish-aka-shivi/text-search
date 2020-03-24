@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import originalSentences from './sentences.json';
+import originalSentences from '../../data/sentences.json';
 import './App.css';
 
 const SearchBar = ({handleInput}) => (
-    <input placeholder="Type your keyword here" className="Search-bar" type="search" onInput={handleInput} />
+    <input placeholder="Type your keyword here" className="Search-bar" type="text" onInput={handleInput} />
 )
 
 const ListItem = ({ text }) => (
