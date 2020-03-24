@@ -1,24 +1,8 @@
 import React from 'react';
 import useSearch from '../../hooks/useSearch';
+import List from '../../components/SentenceList';
+import SearchBar from '../../components/SearchBar';
 import './App.css';
-
-const SearchBar = ({handleInput}) => (
-    <input placeholder="Type your keyword here" className="Search-bar" type="text" onInput={handleInput} />
-)
-
-const ListItem = ({ text }) => (
-  <li className="List-item">{text}</li>
-)
-
-const List = ({ sentences }) => (
-  <ul className="List">
-    {
-      sentences.map(sentence => (
-        <ListItem text={sentence.data} key={sentence.id}></ListItem>
-      ))
-    }
-  </ul>
-);
 
 const App = () => {
   const [filteredList, searchKeyword] = useSearch();
