@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import originalSentences from '../../data/sentences.json';
+import React from 'react';
+import useSearch from '../../hooks/useSearch';
 import './App.css';
 
 const SearchBar = ({handleInput}) => (
@@ -20,15 +20,11 @@ const List = ({ sentences }) => (
   </ul>
 );
 
-const searchAlgorithm = (keyword) => originalSentences.filter(sentence => sentence.data.toLowerCase().indexOf(keyword.toLowerCase()) !== -1)
-
-
 const App = () => {
-  const [filteredList, setFilteredList] = useState(originalSentences);
+  const [filteredList, searchKeyword] = useSearch();
 
   const handleInput = (event) => {
-    const searchList = searchAlgorithm(event.target.value);
-    setFilteredList(searchList)
+   searchKeyword(event.target.value);
   }
 
   return(
